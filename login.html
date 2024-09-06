@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(10, 10, 55);
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        header,h3{
+            color: white;
+            margin: 20px;
+        }
+        h2{
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #333;
+        }
+        p{
+            margin-bottom: 10px;
+            font-size: 16px;
+            color:black
+        }
+        form{
+            width: 500px;
+            padding: 20px;
+            /* suggest best box shadow   */
+            box-shadow: 5px 5px 5px rgb(206, 27, 125);
+            border-radius: 10px;
+            background: white;
+            /* background: #f8f9fa; */
+            /* border: 1px solid #ddd; */
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            border: 10px solid pink;
+        }
+        input{
+            width: 50%;
+            margin: 10px 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            border-color: 2px solid rgb(10, 10, 55); ;
+            box-sizing: border-box;
+        }
+        #loginForm{
+            margin-top: 50px;
+            text-align: center;
+            font-size: 18px;
+            color: #5cb85c;
+            cursor: pointer;
+            background: pink;
+            /* background:white; */
+            border-radius: 10px;
+
+        }
+        button{
+            margin: 0 auto;
+            width: 50%;
+            padding: 10px;
+            background: #b31c53;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover{
+            background: #f82472;
+        }
+        i{
+            font-size: 24px;
+            color: #5cb85c;
+          
+        }
+
+
+        /* media query */
+        @media screen and (max-width: 768px) {
+            form{
+                width: 100%;
+            }
+            input{
+                width: 100%;
+            }
+            #loginForm{
+                margin-top: 20px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            form{
+                width: 80%;
+                margin-bottom: 50px;
+            }
+            input{
+                width: 100%;
+            }
+            #loginForm{
+                margin-top: 20px;
+            }
+            header{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <i class="fa-solid fa-house"></i>
+        <h1>Welcome to Geekathon</h1>
+            <h3>Login to access your dashboard</h3>
+            <!-- <i class="fa-brands fa-github"></i> -->
+
+    </header>
+  <form id="loginForm" class="animate__animated  animate__flipInX">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required  class="animate__animated  animate__lightSpeedInRight  animate__delay-1s"  />
+    <input type="password" id="password" placeholder="Password" required  class="animate__animated  animate__lightSpeedInRight animate__delay-1s"/>
+    <button type="submit"  class="animate__animated  animate__lightSpeedInRight animate__delay-1s" >Login</button>
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+
+  </form>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit",function(event){
+        event.preventDefault();
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var user = localStorage.getItem(username);
+
+        if(user){
+            var parsedUser = JSON.parse(user);
+            if(parsedUser.password === password){
+                localStorage.setItem("user", JSON.stringify(parsedUser));
+                window.location.href="index.html";
+            }else{
+                alert("Incorrect Password ");
+            }
+        }else{
+            alert("User not found");
+        }
+
+        
+    });
+  </script>
+    
+</body>
+</html>
