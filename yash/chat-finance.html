@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Finance </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.5;
+            transition: background-color 0.3s ease-in-out;
+            overflow-y: scroll;
+            color: white;
+
+        }
+        .promo-section{
+            display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 20px;
+        }
+        .text-section{
+            width: 40%;
+            max-width: 500px;
+            margin: 20px;
+            border-radius: 10px;
+            padding: 20px;
+            color:chocolate ;
+        }
+        .text-section h1{
+            font-size: 30px;
+            color:chocolate ; 
+
+        }
+        form{
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            /* background-color: #f1f1f1; */
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Dashboard section  -->
+    <main>
+        <header>
+          <button id="menu-btn">☰</button>
+        <nav id="nav-menu" class="hidden">
+          <div class="flex">
+            <h3>Menu</h3><button id="close-btn">&times;</button>
+          </div>
+            <ul class="menu-item">
+                <li><a href="index2.html">General Purpose</a></li>
+                <li><a href="start-up">StartUp Company</a></li>
+                <li><a href="ai-support.html">AI-Support(24*7)</a></li>
+                <li><a href="mynotes.html">MyExpense Notes</a></li>
+                <li><a href="chat-finance.html">Chat With Finance Expert  </a></li>
+            </ul>
+        </nav>
+        <h1>Chat With Finance Expert</h1>  
+            <div class="logout">
+                <a href="login.html">Logout</a>
+            </div>
+        </header>
+              </main>
+
+    <div class="promo-section">
+        <div class="text-section">
+        <h1>Welcome to Chat Finance!</h1>
+        <div id="chatHistory"></div>
+        </div>
+        <div class="image">
+            <img src="assets/5 Reasons Why We Love The Finance Team (1).webp" alt="">
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize the chatbot
+        chatbot.init();
+        
+        // Add event listener to the form submission
+        document.getElementById('userInput').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get the user input
+            var userInput = document.getElementById('userInput').value;
+            
+            // Clear the input field
+            document.getElementById('userInput').value = '';
+            
+            // Add the user's input to the chat history
+            chatbot.addToChatHistory('user', userInput);
+            
+            // Get the chatbot's response
+            var chatbotResponse = chatbot.getResponse(userInput);
+            
+            // Add the chatbot's response to the chat history
+            chatbot.addToChatHistory('bot', chatbotResponse);
+        });
+        
+        // Add the initial chat history
+        chatbot.addToChatHistory('bot', 'Hello! I am a Chat Finance chatbot. Type in your questions about your budget, expenses, and income.');
+        chatbot.addToChatHistory('user', 'What are my current expenses?');
+        chatbot.addToChatHistory('bot', 'To find out your current expenses, you can ask me about your income and savings.');
+        chatbot.addToChatHistory('user', 'How can I optimize my spending?');
+        chatbot.addToChatHistory('bot', 'Some tips to optimize your spending include setting a budget, saving money, and prioritizing essential expenses.');
+        chatbot.addToChatHistory('user', 'What are some financial advice for a new start?');
+        chatbot.addToChatHistory('bot', 'To help you with a new start, consider setting a financial goal, creating a budget, and learning about budgeting techniques.');
+        chatbot.addToChatHistory('user', 'Thank you for your help! I feel more confident in managing my finances now.');
+        </script>
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

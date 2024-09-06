@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expense Notes</title>
+        <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.expense-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.expense-form button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expense-form button:hover {
+    background-color: #45a049;
+}
+
+.expense-list {
+    margin-top: 20px;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ccc;
+}
+
+.total {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.total h2 {
+    margin: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menu-btn">☰</button>
+      <nav id="nav-menu" class="hidden">
+        <div class="flex">
+          <h3>Menu</h3><button id="close-btn">&times;</button>
+        </div>
+          <ul class="menu-item">
+              <li><a href="index.html">General Purpose</a></li>
+              <li><a href="start-up">StartUp Company</a></li>
+              <li><a href="ai-support">AI-Support(24*7)</a></li>
+              <li><a href="mynotes.html">MyExpense Notes</a></li>
+              <li><a href="chat-finance">Chat With Finance Expert  </a></li>
+          </ul>
+      </nav>
+      <h1>Daily Finanace Management</h1>  
+          <div class="logout">
+              <a href="#">Logout</a>
+          </div>
+      </header>
+      
+  
+      <!-- Nav Header section  -->
+          <nav>
+              <ul>  
+                 <li><a href="#exp-tracker">Expense Tracker</a></li>
+                 <li><a href="#data-v">Data Visualization</a></li>
+                 <li><a href="#finance">AI Financial Advisor</a></li>
+                 <li><a href="#taxes">Taxes Calculator</a></li>
+              </ul>
+              <div class="switch-info">
+                <label class="switch">
+                  <input type="checkbox" id="themeToggle">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </nav> 
+    <div class="container">
+        <h1>My Expense Notes</h1>
+        <div class="expense-form">
+            <input type="text" id="expense-name" placeholder="Expense Name">
+            <input type="number" id="expense-amount" placeholder="Amount">
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+        <div class="expense-list" id="expense-list">
+            <!-- List of expenses will appear here -->
+        </div>
+        <div class="total">
+            <h2>Total: $<span id="total-amount">0</span></h2>
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        let totalAmount = 0;
+
+function addExpense() {
+    const expenseName = document.getElementById('expense-name').value;
+    const expenseAmount = parseFloat(document.getElementById('expense-amount').value);
+
+    if (expenseName === '' || isNaN(expenseAmount) || expenseAmount <= 0) {
+        alert('Please enter a valid expense name and amount.');
+        return;
+    }
+
+    // Add the expense to the list
+    const expenseList = document.getElementById('expense-list');
+    const expenseItem = document.createElement('div');
+    expenseItem.className = 'expense-item';
+    expenseItem.innerHTML = `<span>${expenseName}</span><span>$${expenseAmount.toFixed(2)}</span>`;
+    expenseList.appendChild(expenseItem);
+
+    // Update the total amount
+    totalAmount += expenseAmount;
+    document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
+
+    // Clear the input fields
+    document.getElementById('expense-name').value = '';
+    document.getElementById('expense-amount').value = '';
+}
+
+    </script>
+</body>
+</html>

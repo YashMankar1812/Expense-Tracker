@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geekathon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #08062c;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #fb3e7a;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
+.flex{
+    justify-content: space-between;
+}
+.fa-solid{
+ color: white;
+}
+#main{
+    /* flex: 1; */
+    padding: 2rem;
+    margin: 3rem;
+    background-color:transparent;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 10px 12px 15px rgba(247, 244, 244, 0.2);
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Main Section */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#fff;
+}
+
+.container a {
+    text-decoration: none;
+    background-color: #f71f63;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container a:hover {
+    background-color: #fa568a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .container a {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+        <nav class="animate__animated animate__lightSpeedInRight animate__delay-1s">
+            <ul class="flex">
+                <i class="fa-solid fa-house"></i>
+                 <li><a href="login. animate__delay-1shtml" >Login & Signup</a></li>
+            </ul>
+        </nav>
+        <main class="animate__animated animate__backInDown" id="main">
+            <div class="container">
+                <h1>Track Your Expenses Effortlessly  </h1>
+                <a href="login.html" class="animate__bounceIn">Get Started</a>
+            </div>
+        </main>

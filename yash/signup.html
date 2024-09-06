@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style> 
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: rgb(10, 10, 55);
+        }
+        header,h3{
+            color: white;
+            margin: 20px;
+        }
+        h2{
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        p{
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            color: #555;
+        }
+        form{
+            width: 500px;
+            padding: 20px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            box-shadow: 5px 5px 5px rgb(228, 10, 166);
+        }
+        input{
+            width: 50%;
+            margin: 10px 0;
+            padding: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            align-items: center;
+            text-align: center;
+            /* border-radius: 15px; */
+            box-sizing: border-box;
+        }
+        #Signup{
+            margin-top: 50px;
+            text-align: center;
+            font-size: 18px;
+            color: #5cb85c;
+            cursor: pointer;
+            background: rgb(241, 139, 241);
+            /* background: #f9fbf9; */
+            border-radius: 15px;
+
+        }
+        button{
+            margin: 0 auto;
+            width: 50%;
+            padding: 10px;
+            /* background: #073e07; */
+            /* background: #b31c53; */
+            background: rgb(235, 48, 235);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover{
+            background: rgb(156, 31, 156);
+        }
+        i{
+            font-size: 24px;
+            color: #5cb85c;
+
+        }
+        /* media query  */
+        @media screen and (max-width: 600px){
+            body{
+                flex-direction: column;
+            }
+            form{
+                width: 80%;
+            }
+            input{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <i class="fa-solid fa-house"></i>
+        <h1>Welcome to Geekathon</h1>
+        <h3>Login to access your dashboard</h3>
+        <!-- <i class="fa-brands fa-github"></i> -->
+    </header>
+    <form id="Signup" class="animate__animated animate__flipInX">
+        <h2>Signup</h2>
+        <input type="text" placeholder="Name" required id="name" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">
+        <input type="text" placeholder="Username" required id="username" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">
+        <input type="text" placeholder="Password" required id="password" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">
+        <input type="text" placeholder="Confirm Password"  required id="confirmPassword" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">
+        <button type="submit" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">Signup</button>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Validation
+            if(password !== confirmPassword){
+                alert('Passwords do not match');
+                return;
+            }
+            
+            const user = {
+                name : name,
+                username : username,
+                password : password,
+            };
+            
+            // Save user data to local storage
+            localStorage.setItem(username, JSON.stringify(user));
+            alert('Registration successful! You can now login.');
+            window.location.href = 'index.2.html';
+        });
+    </script>
+</body>
+</html>
