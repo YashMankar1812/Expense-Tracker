@@ -41,5 +41,5 @@ The *Expense Tracker* is a web application designed to help users manage their f
 ## How to Run the Application
 1. *Clone the Repository*:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/expense-tracker.git
+   git clone https://github.com/YashMankar1812/Expense-Tracker
    cd expense-tracker
