@@ -31,13 +31,10 @@
         form{
             width: 500px;
             padding: 20px;
-            /* suggest best box shadow   */
             box-shadow: 5px 5px 5px rgb(206, 27, 125);
             border-radius: 10px;
             background: white;
-            /* background: #f8f9fa; */
-            /* border: 1px solid #ddd; */
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
             border: 10px solid pink;
         }
         input{
@@ -58,7 +55,6 @@
             color: #5cb85c;
             cursor: pointer;
             background: pink;
-            /* background:white; */
             border-radius: 10px;
 
         }
@@ -146,7 +142,7 @@
             var parsedUser = JSON.parse(user);
             if(parsedUser.password === password){
                 localStorage.setItem("user", JSON.stringify(parsedUser));
-                window.location.href="index.html";
+                window.location.href="index2.html";
             }else{
                 alert("Incorrect Password ");
             }

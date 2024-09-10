@@ -3,134 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Geekathon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #08062c;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #fb3e7a;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
+.flex{
+    justify-content: space-between;
+}
+.fa-solid{
+ color: white;
+}
+#main{
+    /* flex: 1; */
+    padding: 2rem;
+    margin: 3rem;
+    background-color:transparent;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 10px 12px 15px rgba(247, 244, 244, 0.2);
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Main Section */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#fff;
+}
+
+.container a {
+    text-decoration: none;
+    background-color: #f71f63;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container a:hover {
+    background-color: #fa568a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .container a {
+        font-size: 1rem;
+    }
+}
+
+    </style>
 </head>
 <body>
-
-    <!-- Header Dashboard section  -->
-    <main>
-    <header>
-      <button id="menu-btn">☰</button>
-    <nav id="nav-menu" class="hidden">
-      <div class="flex">
-        <h3>Menu</h3><button id="close-btn">&times;</button>
-      </div>
-        <ul class="menu-item">
-            <li><a href="index.html">General Purpose</a></li>
-            <li><a href="start-up.index.html">StartUp Company</a></li>
-            <li><a href="chat-finance.html">Chat With Finance Expert  </a></li>
-        </ul>
-    </nav>
-    <h1>Daily Finanace Management</h1>  
-        <div class="logout">
-            <a href="login.html">Logout</a>
-        </div>
-    </header>
-    
-
-    <!-- Nav Header section  -->
-        <nav>
-            <ul>  
-               <li><a href="#exp-tracker">Expense Tracker</a></li>
-               <li><a href="#data-v">Data Visualization</a></li>
-               <li><a href="#financial-advice">AI Financial Advisor</a></li>
-               <li><a href="#taxes">Taxes Calculator</a></li>
+        <nav class="animate__animated animate__lightSpeedInRight animate__delay-1s">
+            <ul class="flex">
+                <i class="fa-solid fa-house"></i>
+                 <li><a href="login.html" >Login & Signup</a></li>
             </ul>
-            <div class="switch-info">
-              <label class="switch">
-                <input type="checkbox" id="themeToggle">
-                <span class="slider round"></span>
-              </label>
+        </nav>
+        <main class="animate__animated animate__backInDown" id="main">
+            <div class="container">
+                <h1>Track Your Expenses Effortlessly  </h1>
+                <a href="login.html" class="animate__bounceIn">Get Started</a>
             </div>
-          </nav>  
-
-
-    <!-- Main Content  -->
-
-  <div class="main-1">
-    <section id="exp-tracker" class="exp-tracker">
-    <h2>Expense Tracker</h2>
-    <form id="expense-form">
-        <input type="text" id="description" placeholder="Expense Description" required>
-        <input type="number" id="amount" placeholder="Amount" required>
-        <select id="category">
-            <option value="Food">Food</option>
-            <option value="Transport">Transport</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Health">Health</option>
-        </select>
-        <button type="submit">Add Expense</button>
-    </form>
-
-    <div id="budget-alert" style="display:none;">You are nearing your budget limit!</div>
-    <div id="expense-list"></div>
-    </section> 
-
-
-     <!-- Data Visualization  -->
-
-    <section class="data-v" id="data-v">
-      <h2>Expense Breakdown</h2>
-    <canvas id="expense-chart"></canvas>
-    </section>  
-  </div>
-    
-     <!-- finance  -->
-
-     <div class="main-2">
-    <section class="finance" id="financial-advice">
-        <h2>Financial Advice</h2>
-        <div id="financial-advice" class=""></div>
-    </section>
-    
-
-    <!-- tax calculator  -->
-
-     <section class="taxes" id="taxes">
-      <h2>Taxes Calculator</h2>
-      <div class="taxex-cont">
-        <input type="number" id="income-input" placeholder="Enter your total income">
-        <button id="calculate-tax" onclick="calculateTaxes()">Calculate Tax</button>
-        <p>Total Income: ₹ <span id="total-income"> 0</span></p>
-        <p>Tax Rate: <span id="tax-rate"> 0%</span></p>
-        
-        <table>
-            <tr>
-                <th>Income Threshold</th>
-                <th>Tax Rate</th>
-            </tr>
-            <tr>
-                <td>Income above ₹1000000.00</td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td>Income above ₹700000.00</td>
-                <td>15%</td>
-              </tr>
-              <tr>
-                <td>Income above ₹500000.00</td>
-                <td>10%</td>
-              </tr>
-              <tr>
-                <td>Income above ₹300000.00</td>
-                <td>5%</td>
-              </tr>
-        </table>
-              <p>Tax to Pay: ₹ <span id="tax-to-pay"> 0</span></p>
-              <p>Amount left after tax: ₹ <span id="amount-left"> 0</span></p>
-    </div>
-    </section> 
-     </div>
-
-  
-    </main>
-    
-    <button class="delete-btn" id="delete-button" onclick="deleteExpense"  title="Delete All ">Delete</button>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script2.js"></script>
+        </main>
 </body>
+   <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const getStartedButton = document.querySelector(".container a");
+  // Add an event listener for click event
+  getStartedButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent the default action
+    alert("Redirecting to login page..."); // Show an alert
+    // Redirect to login.html (you can remove this if not needed)
+    window.location.href = "login.html";
+  });
+});
+
+   </script>
+
 </html>

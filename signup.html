@@ -47,7 +47,7 @@
             /* border-radius: 15px; */
             box-sizing: border-box;
         }
-        #Signup{
+        #registerForm{
             margin-top: 50px;
             text-align: center;
             font-size: 18px;
@@ -104,7 +104,7 @@
         <h3>Login to access your dashboard</h3>
         <!-- <i class="fa-brands fa-github"></i> -->
     </header>
-    <form id="Signup" class="animate__animated animate__flipInX">
+    <form id="registerForm" class="animate__animated animate__flipInX">
         <h2>Signup</h2>
         <input type="text" placeholder="Name" required id="name" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">
         <input type="text" placeholder="Username" required id="username" class="animate__animated  animate__lightSpeedInRight animate__delay-1s">
@@ -126,7 +126,6 @@
                 alert('Passwords do not match');
                 return;
             }
-            
             const user = {
                 name : name,
                 username : username,
@@ -136,7 +135,7 @@
             // Save user data to local storage
             localStorage.setItem(username, JSON.stringify(user));
             alert('Registration successful! You can now login.');
-            window.location.href = 'index.2.html';
+            window.location.href ='login.html';
         });
     </script>
 </body>
